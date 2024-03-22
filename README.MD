@@ -183,9 +183,3 @@ if ($result->isSuccess()) {
     // Ошибка
 }
 ```
-
-## Запуск тестов
-
-```sh
-composer test
-```
