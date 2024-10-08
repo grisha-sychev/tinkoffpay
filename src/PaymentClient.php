@@ -41,12 +41,13 @@ class PaymentClient extends DefaultJsonRestClient implements PaymentClientInterf
         $this->setInterceptors($this->getClientInterceptors());
     }
 
-    public static function create(string $terminalKey, string $password, string $baseUri = Constant::PAY_BASE_URI): PaymentClientInterface
+    public static function create(string $terminalKey, string $password, bool $verify = true, string $baseUri = Constant::PAY_BASE_URI): PaymentClientInterface
     {
         $config = new Configuration();
         $config->setTerminalKey($terminalKey);
         $config->setPassword($password);
         $config->setBaseUri($baseUri);
+        $config->setVerify($verify);
         return new self($config);
     }
 
